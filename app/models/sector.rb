@@ -1,5 +1,6 @@
 class Sector < ApplicationRecord
-    validates :user_name, presence: true, length: { maximum: 30 }
-    validates :sector_name, presence: true
-    validates :agree, presence: true
+    belongs_to :user, class_name: 'User'
+
+    validates_presence_of :user
+    validates :name, presence: true, length: {maximum: 30 }
 end
