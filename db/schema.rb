@@ -16,18 +16,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_012052) do
 
   create_table "sectors", force: :cascade do |t|
     t.string "sector_name"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sectors_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "sector_name"
     t.boolean "agree"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "sectors", "users"
 end
