@@ -1,7 +1,12 @@
 class Api::V1:: UsersController < ApplicationController
     def create
-        @user = User.new(user_params) if params[:user][:agree] == true
+        @user = User.new(user_params)
 
+        if params[:user][:agree] == false
+            render json: {
+                message: 'You should agree to our terms'
+            }, status: :unprocessable_entity  
+         else
         if @user.save
             render json: {
                 message: 'Details added successfully'
@@ -12,6 +17,7 @@ class Api::V1:: UsersController < ApplicationController
                 message: 'Something went wrong'
             }, status: :unprocessable_entity
         end
+    end
     end
 
     def update
