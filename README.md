@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project for a Single Page Application API that integrates with a react app for display
 
-Things you may want to cover:
 
-* Ruby version
+## Built With
+- Ruby
+- Rails
+- Postgresql
+- React
 
-* System dependencies
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get a local copy up and running follow these simple example steps.
 
-* Database initialization
+Start by cloning the repository.
 
-* How to run the test suite
+`https://github.com/usorfaitheloho/coding-challenge-backend.git`
 
-* Services (job queues, cache servers, search engines, etc.)
+Navigate to the created folder.
 
-* Deployment instructions
+`cd .coding-challenge-backend.git`
+`cd coding-challenge-backend`
 
-* ...
+
+### Prerequisites
+
+- A Command Line Interface.
+- Having Ruby installed.
+- Setup Rails
+
+### Install
+To install rails, run `gem install rails on your terminal`
+### Usage
+### Run tests
+To run tests enter `rspec` command on your terminal
+
+## Authors
+ **Usor Faith Eloho**
+
+- GitHub: [@githubhandle](https://github.com/usorfaitheloho)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/faith-usor)
+
+
+## 🤝 Contributing
+@@ -64,7 +62,6 @@ Give a ⭐️ if you like this project!
+
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
