@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-
-  namespace :v1, defaults: { format: 'json' } do
-    get 'sectors', to: 'sectors#index'
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :sectors
+      resources :users
+    end
   end
-
-  root 'sectors#index'
 
 end
