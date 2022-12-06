@@ -25,7 +25,7 @@ RSpec.describe 'api/v1/users', type: :request do
             sector_name: { type: :string },
             agree: { type: :boolean }
           },
-          required: %w[name, sector_name, agree]
+          required: %w[name sector_name agree]
         }
 
         after do |example|
@@ -110,6 +110,5 @@ RSpec.describe 'api/v1/users', type: :request do
         run_test!
       end
     end
-
   end
 end
