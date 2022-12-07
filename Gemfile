@@ -42,14 +42,26 @@ gem 'rswag'
 
 gem 'devise'
 
+gem 'ffi'
+
 group :development, :test do
+    gem 'database_cleaner'
+    gem 'factory_bot_rails'
+    gem 'rspec-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'web-console'
+end
+
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'capybara'
+  gem 'faker'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
