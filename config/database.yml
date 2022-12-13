@@ -88,4 +88,4 @@ production:
   database: coding_challenge_backend_production
   username: coding_challenge_backend
   password: <%= ENV["CODING_CHALLENGE_BACKEND_DATABASE_PASSWORD"] %>
-  url: <%= ENV["CODING_CHALLENGE_BACKEND_API_DATABASE_URL"] %>
+  url: <%= ENV["'DATABASE_URL'"] %>
