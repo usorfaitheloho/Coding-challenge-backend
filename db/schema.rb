@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_012052) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_11_181548) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "allowlistedjwts", force: :cascade do |t|
+    t.string "jti"
+    t.string "aud"
+    t.datetime "exp", null: false
+    t.bigint "admin_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_allowlistedjwts_on_admin_id"
+    t.index ["jti"], name: "index_allowlistedjwts_on_jti"
+  end
 
   create_table "sectors", force: :cascade do |t|
     t.string "sector_name"
@@ -28,4 +51,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_012052) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "allowlistedjwts", "admins", on_delete: :cascade
 end

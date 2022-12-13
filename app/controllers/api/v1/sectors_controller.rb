@@ -1,4 +1,6 @@
 class Api::V1::SectorsController < ApplicationController
+  # skip_before_action :authenticate_admin!
+
   def index
     @sectors = Sector.all
     render json: { sectors: @sectors }.to_json, status: :ok

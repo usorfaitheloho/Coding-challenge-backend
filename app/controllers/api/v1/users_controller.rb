@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  # before_action :authenticate_admin!
   def create
     @user = User.new(user_params)
 
@@ -21,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(
-      user_name: params[:user_name],
+      name: params[:name],
       sector_name: params[:sector_name],
       agree: params[:agree]
     )
@@ -29,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:user_name, :sector_name, :agree).find(params[:id])
+    @user = User.find(params[:id])
     render json: { user: @user }.to_json, status: :created
   end
 
