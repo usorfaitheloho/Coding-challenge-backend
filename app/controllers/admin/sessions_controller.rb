@@ -1,27 +1,27 @@
 class Admin::SessionsController < Devise::SessionsController
-  respond_to :json 
+  respond_to :json
   # private
 
-def set_current_admin
+  def set_current_admin
     if session[:admin_id]
-        @current_admin = Admin.find(session[:admin_id])
-     else
-        render json: { status: :unprocessable_entity}
+      @current_admin = Admin.find(session[:admin_id])
+    else
+      render json: { status: :unprocessable_entity }
     end
-end
+  end
 
-def create
+  def create
     admin = Admin.find_by(email: params[:email])
-    
-    if admin.present? 
+
+    if admin.present?
       session[:admin_id] = admin.id
-      render json:{
+      render json: {
         status: 200,
         sign_in: true,
-        admin: admin
+        admin:
       }
     else
-      render json: { status: 401}
+      render json: { status: 401 }
     end
   end
 
@@ -31,7 +31,7 @@ def create
         sign_in: true,
         admin: @current_admin
       }
-    else 
+    else
       render json: {
         sign_in: false
       }
@@ -40,7 +40,6 @@ def create
 
   def sign_out
     reset_session
-    render json: { status: 200, sign_out: true  }
-  end 
-
+    render json: { status: 200, sign_out: true }
+  end
 end

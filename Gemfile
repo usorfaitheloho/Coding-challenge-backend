@@ -36,7 +36,7 @@ gem 'devise'
 
 gem 'devise-jwt'
 
-gem "jsonapi-serializer"
+gem 'jsonapi-serializer'
 
 gem 'bcrypt'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
